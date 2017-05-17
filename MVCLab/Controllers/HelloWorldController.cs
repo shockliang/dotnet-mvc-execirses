@@ -44,7 +44,7 @@ namespace MVCLab.Controllers
         }
 
         /// <summary>
-        /// This result was very trick when pass the paramaters like /HelloWorld/Test?1&id=2. The var id will be 1 but not 2.
+        /// This result was very trick when pass the paramaters like /HelloWorld/Test/1&id=2. The var id will be 1 but not 2.
         /// Cause the model binding of asp.net mvc that using ValueProviderFactory to parse the paramaters. It has 6 differences value
         /// data provider to parse paramaters.
         /// Ref:http://blog.miniasp.com/post/2015/11/08/ASPNET-MVC-Developer-Note-Part-25-Value-Provider-and-Model-Binder.aspx
@@ -53,6 +53,10 @@ namespace MVCLab.Controllers
         /// <returns></returns>
         public string Test(int id)
         {
+            //var resutl = HttpContext.Current.Request[id.ToString()];
+            //var result = HttpContext.Request[id.ToString()];
+            var result = System.Web.HttpContext.Current.Request[id.ToString()];
+
             return HttpUtility.HtmlEncode(string.Format("Test id:{0}", id));
         }
     }
