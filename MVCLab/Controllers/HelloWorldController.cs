@@ -24,24 +24,29 @@ namespace MVCLab.Controllers
         //{
         //    return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + numTimes);
         //}
-        
-        public string Welcome(Personal personal)
+
+        public string Welcome(string name, int id = 1)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    // Submit the changes to the database here
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the exception somewhere to be looked at later
-                ModelState.AddModelError("*", "An unexpected error occurred.");
-            }
-            return HttpUtility.HtmlEncode(string.Format("Helllo {0}, num times is :{1}", personal.Name, personal.NumTimes));
+            return HttpUtility.HtmlEncode(string.Format("Hello {0}, ID: {1}", name, id));
         }
+
+        //public string Welcome(Personal personal)
+        //{
+        //    try
+        //    {
+        //        if (ModelState.IsValid)
+        //        {
+        //            // Submit the changes to the database here
+
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log the exception somewhere to be looked at later
+        //        ModelState.AddModelError("*", "An unexpected error occurred.");
+        //    }
+        //    return HttpUtility.HtmlEncode(string.Format("Helllo {0}, num times is :{1}", personal.Name, personal.NumTimes));
+        //}
 
         /// <summary>
         /// This result was very trick when pass the paramaters like /HelloWorld/Test/1&id=2. The var id will be 1 but not 2.
