@@ -20,15 +20,17 @@ namespace MVCLab.Controllers
         // 
         // GET: /HelloWorld/Welcome/ 
 
-        //public string Welcome(string name, int numTimes = 1)
-        //{
-        //    return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + numTimes);
-        //}
-
-        public string Welcome(string name, int id = 1)
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
-            return HttpUtility.HtmlEncode(string.Format("Hello {0}, ID: {1}", name, id));
+            ViewBag.Message = "Hello" + name;
+            ViewBag.NumTimes = numTimes;
+            return View();
         }
+
+        //public string Welcome(string name, int id = 1)
+        //{
+        //    return HttpUtility.HtmlEncode(string.Format("Hello {0}, ID: {1}", name, id));
+        //}
 
         //public string Welcome(Personal personal)
         //{
