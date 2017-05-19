@@ -29,5 +29,7 @@ namespace MVCLab.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<MVCLab.Models.Movie> Movies { get; set; }
     }
 }
